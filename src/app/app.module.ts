@@ -6,6 +6,19 @@ import { AcessoComponent } from './acesso/acesso.component';
 import { BannerComponent } from './acesso/banner/banner.component';
 import { LoginComponent } from './acesso/login/login.component';
 import { CadastroComponent } from './acesso/cadastro/cadastro.component';
+import { ReactiveFormsModule} from "@angular/forms";
+import { NoopAnimationsModule} from "@angular/platform-browser/animations";
+import { Autenticacao } from "./autenticacao.service";
+import { AngularFireAuthModule} from "@angular/fire/compat/auth";
+import { AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import { AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { AngularFireModule} from "@angular/fire/compat";
+import {AppRoutingModule} from "./app-routing.module";
+import {environment} from "../environments/environment";
+import  firebase from "firebase/compat/app";
+
+firebase.initializeApp(environment.firebaseConfig)
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,9 +29,17 @@ import { CadastroComponent } from './acesso/cadastro/cadastro.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NoopAnimationsModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireModule,
+    AppRoutingModule
+
   ],
-  providers: [],
+  providers: [Autenticacao],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

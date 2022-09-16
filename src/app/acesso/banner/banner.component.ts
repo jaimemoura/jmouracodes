@@ -20,9 +20,6 @@ import {trigger, state, style, transition, animate} from "@angular/animations";
   ]
 })
 export class BannerComponent implements OnInit {
-
-  public estado: string = 'visivel'
-
   public imagens: Imagem [] = [
     {estado:'visivel', url: '/assets/banner-acesso/img_1.png' },
     {estado:'escondido', url: '/assets/banner-acesso/img_2.png' },
