@@ -13,9 +13,14 @@ import { AngularFireAuthModule} from "@angular/fire/compat/auth";
 import { AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { AngularFireStorageModule} from "@angular/fire/compat/storage";
 import { AngularFireModule} from "@angular/fire/compat";
+import { RouterModule} from "@angular/router";
+import { ROUTES} from "./app.routes";
 import {AppRoutingModule} from "./app-routing.module";
 import {environment} from "../environments/environment";
 import  firebase from "firebase/compat/app";
+import { HomeComponent } from './home/home.component';
+import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
+
 
 firebase.initializeApp(environment.firebaseConfig)
 
@@ -25,7 +30,9 @@ firebase.initializeApp(environment.firebaseConfig)
     AcessoComponent,
     BannerComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    HomeComponent,
+    PublicacoesComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,10 @@ firebase.initializeApp(environment.firebaseConfig)
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFireModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(ROUTES)
+
+
 
   ],
   providers: [Autenticacao],
